@@ -1,0 +1,51 @@
+<h1>Employee Details</h1>
+<table>
+  <thead>
+     <tr>
+       <th>EMP Id</th>
+       <th>EMP Name</th>
+       <th>Designation</th>
+       <th>Location</th>
+       <th>Address</th>
+       <th *ngIf="!hide">Salary</th>
+     </tr>
+  </thead>
+  <tbody>
+     <tr *ngFor="let employee of employees">
+       <td>{{ employee.id }}</td>
+       <td>{{ employee.name }}</td>
+       <td>{{ employee.designation }}</td>
+       <td>{{ employee.location }}</td>
+       <td>{{employee.address}}</td>
+       <td *ngIf="!hide">{{ employee.salary }}</td>
+     </tr>
+  </tbody>
+ </table>
+ <div>
+  <button (click)="toggleHide()">{{ hide ? 'Show' : 'Hide' }} Salary </button>
+ </div>
+
+
+
+ <table>
+  <thead>
+    <th *ngIf="action">EMP Id</th>
+    <th>EMP Name</th>
+    <th>Designation</th>
+    <th>Location</th>
+    <th>Address</th>
+    <th>Salary</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td *ngIf="action">{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.designation}}</td>
+      <td>{{employee.location}}</td>
+      <td>{{employee.address}}</td>
+      <td>{{employee.salary}}</td>
+    </tr>
+  </tbody>
+</table>
+<button (click)="toggleSide()">{{action?'Hide':'Show'}} Emp ID</button>
+
